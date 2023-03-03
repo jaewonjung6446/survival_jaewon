@@ -20,6 +20,5 @@ public class EnemyGen : MonoBehaviour
             GameManager.Instance.pool.GetPool(a, c);
             time = 0;
         }
-        Debug.Log(time);
     }
 }

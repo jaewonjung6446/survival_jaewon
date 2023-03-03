@@ -42,7 +42,6 @@ public class Pooling : MonoBehaviour
         GameObject get_pool = null;
         if (!pools[enum_index].Contains(prefabs[enum_index]))
         {
-            Debug.Log("ť empty");
             get_pool = GameObject.Instantiate(prefabs[enum_index]);
         }
         if (pools[enum_index].Contains(prefabs[enum_index]))
