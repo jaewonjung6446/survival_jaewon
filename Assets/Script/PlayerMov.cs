@@ -54,6 +54,18 @@ public class PlayerMov : MonoBehaviour
         mov_pos.y = Input.GetAxisRaw("Vertical");
         return mov_pos.normalized;
     }
+    void Atk(GameObject obj)
+    {
+        switch (obj.name)
+        {
+            default:
+                break;
+        }
+    }
+    void Atked()
+    {
+
+    }
     IEnumerator DashTk()
     {
         for (; ; )
@@ -82,8 +94,13 @@ public class PlayerMov : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
         vel = 1.0f;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (this.gameObject.name != "Player")
+            return;
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            GameManager.Instance.pool.DesPool(collision.gameObject);
+        }
     }
 }

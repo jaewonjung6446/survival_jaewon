@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyGen : MonoBehaviour
 {
-    [SerializeField] float genTime = 0.3f;
+    [SerializeField] float genTime = 0.8f;
     float time;
     private void Start()
     {
