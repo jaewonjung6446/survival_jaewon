@@ -22,6 +22,7 @@ public class Pooling : MonoBehaviour
             pools[i] = new Queue<GameObject>();
             GameObject G_prefabsClone = GameObject.Instantiate(prefabs[i]);
             G_prefabsClone.SetActive(false);
+            G_prefabsClone.transform.position = new Vector3(0,1,0);
             prefabsClone[i] = G_prefabsClone;
         }
         SetPool();
@@ -29,7 +30,7 @@ public class Pooling : MonoBehaviour
 
     void SetPool()
     {
-        for(int i = 0; i < prefabsClone.Length; i++)
+        for(int i = 0; i < prefabs.Length; i++)
         {
             for(int m = 0; m<100; m++)
             {
@@ -48,7 +49,6 @@ public class Pooling : MonoBehaviour
         }
         if (pools[enum_index] != null)
         {
-            Debug.Log("큐에서 생성");
             get_pool = pools[enum_index].Dequeue();
         }
         get_pool.SetActive(true);
@@ -56,7 +56,7 @@ public class Pooling : MonoBehaviour
     }
     public void DesPool(GameObject obj)
     {
-        for (int i = 0; i < prefabs.Length; i++)
+        for (int i = 0; i < prefabsClone.Length; i++)
         {
             if (prefabsClone[i].name == obj.name)
             {

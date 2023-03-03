@@ -6,10 +6,15 @@ using UnityEngine.EventSystems;
 public class ButtonGen : MonoBehaviour { 
     [SerializeField] GameObject[] ButtonPrefabs;
     [SerializeField] GameObject canvas;
+    [SerializeField] GameObject backGround;
     List<GameObject> buttonList = new List<GameObject>();
-    Vector3[] GenPos = { new Vector3(-110, 0, 0), new Vector3(0, 0, 0), new Vector3(110, 0, 0) };
+    Vector3[] GenPos = { new Vector3(-600, 0, 0), new Vector3(0, 0, 0), new Vector3(600, 0, 0) };
     float time = 0;
     [SerializeField] float buttonGenTime = 5;
+    void Start ()
+    {
+        backGround.SetActive(false);
+    }
     void FixedUpdate()
     {
         time += Time.fixedDeltaTime;
@@ -19,8 +24,9 @@ public class ButtonGen : MonoBehaviour {
             time = 0;
         }
     }
-    IEnumerator GenButton()
+    void GenButton()
     {
+        backGround.SetActive(true);
         for (int i = 0; i < 3; i++)
         {
             GameObject buttonGen = GameObject.Instantiate(ButtonPrefabs[Random.Range(0, ButtonPrefabs.Length)], canvas.transform);
@@ -28,8 +34,7 @@ public class ButtonGen : MonoBehaviour {
             buttonList.Add(buttonGen);
             buttonGen.GetComponent<RectTransform>().anchoredPosition = GenPos[i];
         }
-        yield return new WaitForSecondsRealtime(3.0f);
-        DesButton();
+        Time.timeScale = 0;
     }
     public void DesButton()
     {
@@ -38,5 +43,7 @@ public class ButtonGen : MonoBehaviour {
             GameObject des = buttonList[i];
             Destroy(des);
         }
+        backGround.SetActive(false);
+        Time.timeScale = 1;
     }
 }

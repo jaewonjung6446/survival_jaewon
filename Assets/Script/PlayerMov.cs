@@ -94,13 +94,4 @@ public class PlayerMov : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
         vel = 1.0f;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (this.gameObject.name != "Player")
-            return;
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            GameManager.Instance.pool.DesPool(collision.gameObject);
-        }
-    }
 }

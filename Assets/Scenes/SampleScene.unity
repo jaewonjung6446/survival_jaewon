@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 109575642}
   - component: {fileID: 109575641}
   - component: {fileID: 109575640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap2
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4363,7 +4363,7 @@ GameObject:
   - component: {fileID: 116244634}
   - component: {fileID: 116244633}
   - component: {fileID: 116244632}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap7
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -8779,7 +8779,7 @@ GameObject:
   - component: {fileID: 401117241}
   - component: {fileID: 401117240}
   - component: {fileID: 401117239}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap3
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -13238,7 +13238,7 @@ GameObject:
   - component: {fileID: 537324317}
   - component: {fileID: 537324316}
   - component: {fileID: 537324315}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap4
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -17502,6 +17502,7 @@ MonoBehaviour:
   - {fileID: 1957582614}
   - {fileID: 950251122}
   canvas: {fileID: 1735532387}
+  backGround: {fileID: 1239214256}
   buttonGenTime: 5
 --- !u!1 &950251122
 GameObject:
@@ -17540,8 +17541,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 275}
-  m_SizeDelta: {x: 100, y: 70}
+  m_AnchoredPosition: {x: 0, y: 1000}
+  m_SizeDelta: {x: 400, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &950251124
 MonoBehaviour:
@@ -17753,7 +17754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951194615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17792,7 +17793,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -17812,7 +17813,7 @@ GameObject:
   - component: {fileID: 1029756374}
   - component: {fileID: 1029756373}
   - component: {fileID: 1029756372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap6
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -22061,8 +22062,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 275}
-  m_SizeDelta: {x: 100, y: 70}
+  m_AnchoredPosition: {x: 0, y: 1000}
+  m_SizeDelta: {x: 400, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1045730441
 MonoBehaviour:
@@ -22172,7 +22173,7 @@ GameObject:
   - component: {fileID: 1082168975}
   - component: {fileID: 1082168974}
   - component: {fileID: 1082168973}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap9
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -26421,8 +26422,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 275}
-  m_SizeDelta: {x: 100, y: 70}
+  m_AnchoredPosition: {x: 0, y: 1000}
+  m_SizeDelta: {x: 400, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1205856229
 MonoBehaviour:
@@ -26653,6 +26654,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229593924}
   m_CullTransparentMesh: 1
+--- !u!1 &1239214256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239214257}
+  - component: {fileID: 1239214259}
+  - component: {fileID: 1239214258}
+  m_Layer: 5
+  m_Name: BackGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1239214257
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239214256}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1735532391}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2000, y: 2000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1239214258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239214256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.3882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1239214259
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239214256}
+  m_CullTransparentMesh: 1
 --- !u!1 &1315644067
 GameObject:
   m_ObjectHideFlags: 0
@@ -26825,8 +26902,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 275}
-  m_SizeDelta: {x: 100, y: 70}
+  m_AnchoredPosition: {x: 0, y: 1000}
+  m_SizeDelta: {x: 400, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1417770823
 MonoBehaviour:
@@ -27094,8 +27171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 275}
-  m_SizeDelta: {x: 100, y: 70}
+  m_AnchoredPosition: {x: 0, y: 1000}
+  m_SizeDelta: {x: 400, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1587004641
 MonoBehaviour:
@@ -27289,6 +27366,7 @@ RectTransform:
   - {fileID: 1045730440}
   - {fileID: 1957582615}
   - {fileID: 950251123}
+  - {fileID: 1239214257}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27327,7 +27405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 6358233443457555699, guid: 1b4c3541f80a67f4a8e31aa4e6095cc7, type: 3}
+  - {fileID: 3151042658376666304, guid: 05ff5e8a629b5674389eee85f94181de, type: 3}
   - {fileID: 151745816207665686, guid: 7d9703ee27242824bbcefbd22734261d, type: 3}
   - {fileID: 5835103389539779336, guid: b86717b75ee07bf4cac998cc40eade34, type: 3}
   prefabsClone: []
@@ -27360,7 +27438,7 @@ GameObject:
   - component: {fileID: 1781745718}
   - component: {fileID: 1781745717}
   - component: {fileID: 1781745716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap8
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -31586,7 +31664,7 @@ GameObject:
   - component: {fileID: 1802666211}
   - component: {fileID: 1802666210}
   - component: {fileID: 1802666209}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -36151,8 +36229,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 275}
-  m_SizeDelta: {x: 100, y: 70}
+  m_AnchoredPosition: {x: 0, y: 1000}
+  m_SizeDelta: {x: 400, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1957582616
 MonoBehaviour:
@@ -36258,7 +36336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2011896414}
   - component: {fileID: 2011896413}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36315,7 +36393,7 @@ GameObject:
   - component: {fileID: 2039488566}
   - component: {fileID: 2039488565}
   - component: {fileID: 2039488564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap5
   m_TagString: Ground
   m_Icon: {fileID: 0}
