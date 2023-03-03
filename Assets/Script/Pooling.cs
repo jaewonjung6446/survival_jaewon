@@ -21,9 +21,6 @@ public class Pooling : MonoBehaviour
         }
         SetPool();
     }
-    private void Start()
-    {
-    }
 
     void SetPool()
     {
@@ -50,5 +47,16 @@ public class Pooling : MonoBehaviour
         }
         get_pool.SetActive(true);
         get_pool.transform.position = genvec;
+    }
+    void DesPool(GameObject obj)
+    {
+        for (int i = 0; i < prefabs.Length; i++)
+        {
+            if(prefabs[i].name == obj.name)
+            {
+                obj.SetActive(false);
+                pools[i].Enqueue(obj);
+            }
+        }
     }
 }
