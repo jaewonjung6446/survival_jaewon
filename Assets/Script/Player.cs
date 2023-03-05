@@ -12,8 +12,8 @@ public class Player : MonoBehaviour
     public float F_atk = 80;
     public float F_atkRate = 0.3f;
     [SerializeField] public float F_atkSpeed = 50;
+    [SerializeField] GameObject atk;
     float atkGenTime = 0;
-    public GameObject G_atk;
     public GameObject target = null;
     public float atkRange = 5;
     bool dashAble = true;
@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
     }
     void GenAtk()
     {
-        GameObject atkPrefab = GameObject.Instantiate(G_atk);
+        GameObject atkPrefab = GameObject.Instantiate(atk);
     }
 
     #endregion Atk

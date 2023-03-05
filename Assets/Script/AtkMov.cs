@@ -6,6 +6,7 @@ public class AtkMov : MonoBehaviour
 {
     Rigidbody2D rigid;
     GameObject target;
+    float time;
     private void OnEnable()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -14,19 +15,14 @@ public class AtkMov : MonoBehaviour
     }
     private void Update()
     {
-        if (target == null)
+        time += Time.deltaTime;
+
+        rigid.position += Time.deltaTime * (target.GetComponent<Rigidbody2D>().position - this.rigid.position).normalized * GameManager.Instance.player.F_atkSpeed;
+        if (time > 3.0f)
         {
             Destroy(this.gameObject);
             return;
         }
-        if (target != null)
-        {
-            rigid.position += Time.deltaTime * (target.GetComponent<Rigidbody2D>().position - this.rigid.position).normalized * GameManager.Instance.player.F_atkSpeed;
-        } 
-    }
-    private void LateUpdate()
-    {
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

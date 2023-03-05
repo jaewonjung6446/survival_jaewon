@@ -17779,7 +17779,7 @@ MonoBehaviour:
   F_atk: 80
   F_atkRate: 0.5
   F_atkSpeed: 10
-  G_atk: {fileID: 3737777981268054311, guid: 30f57988a3d199645af58c71aa4f1929, type: 3}
+  atk: {fileID: 3737777981268054311, guid: 30f57988a3d199645af58c71aa4f1929, type: 3}
   target: {fileID: 0}
   atkRange: 3
   targetSearch: 1
