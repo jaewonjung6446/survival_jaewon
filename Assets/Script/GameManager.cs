@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public PlayerMov playermov;
+    public Player player;
     public Pooling pool;
 
     private void Awake()
@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+        }else if(Instance != null)
+        {
+            Destroy(this);
         }
     }
 }

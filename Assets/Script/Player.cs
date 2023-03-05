@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMov : MonoBehaviour
+
+public class Player : MonoBehaviour
 {
     public Vector3 mov_pos = Vector2.zero;
     public int dashToken = 3;
+    public float playerHp = 100;
+    public float fullPlayerHp = 100;
+    public GameObject atk;
+    GameObject target;
+    float atkRange = 10;
     bool dashAble = true;
     float vel= 1;
     Rigidbody2D rigid;
@@ -48,24 +54,33 @@ public class PlayerMov : MonoBehaviour
         }
         animator.SetFloat("Run" , MovPos().magnitude);
     }
+    #region Mov
     public Vector2 MovPos()
     {
         mov_pos.x = Input.GetAxisRaw("Horizontal");
         mov_pos.y = Input.GetAxisRaw("Vertical");
         return mov_pos.normalized;
     }
-    void Atk(GameObject obj)
+    #endregion Mov
+    #region Interaction
+    public void Atked(GameObject obj)
     {
         switch (obj.name)
         {
-            default:
+            case "Enemy1(Clone)":
+                playerHp -= 5;
+                break;
+            case "Enemy2(Clone)":
+                playerHp -= 8;
+                break;
+            case "Enemy3(Clone)":
+                playerHp -= 12;
                 break;
         }
+        Debug.Log(playerHp);
     }
-    void Atked()
-    {
-
-    }
+    #endregion Interaction
+    #region Dash
     IEnumerator DashTk()
     {
         for (; ; )
@@ -94,4 +109,32 @@ public class PlayerMov : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
         vel = 1.0f;
     }
+    #endregion Dash
+    #region Atk
+    void Targeting()
+    {
+        GameObject[] A_enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        List<GameObject> L_enemy = new List<GameObject> ();
+        float disLeast = 100;
+        for (int i = 0; i < A_enemy.Length; i++)
+        {
+            float dis = (this.rigid.position - A_enemy[i].GetComponent<Rigidbody2D>().position).magnitude;
+            if (dis < atkRange)
+            {
+                L_enemy.Add(A_enemy[i]);
+            }
+        }
+        for (int i = 0; i < L_enemy.Count; i++)
+        {
+            float dis = (this.rigid.position - L_enemy[i].GetComponent<Rigidbody2D>().position).magnitude;
+            if (dis < disLeast)
+                target = L_enemy[i].gameObject;
+        }
+    }
+    void GenAtk()
+    {
+        GameObject atkPrefab = GameObject.Instantiate(atk);
+        atkPrefab.GetComponent<Rigidbody2D>().position = this.rigid.position;
+    }
+    #endregion Atk
 }

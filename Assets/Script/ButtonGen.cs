@@ -20,7 +20,7 @@ public class ButtonGen : MonoBehaviour {
         time += Time.fixedDeltaTime;
         if (time > buttonGenTime)
         {
-            StartCoroutine("GenButton");
+            GenButton();
             time = 0;
         }
     }

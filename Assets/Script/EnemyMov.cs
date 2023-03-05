@@ -15,7 +15,7 @@ public class EnemyMov : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rigid.velocity = enemySpeed * (GameManager.Instance.playermov.GetComponent<Rigidbody2D>().position - this.rigid.position).normalized;
+        this.rigid.velocity = enemySpeed * (GameManager.Instance.player.GetComponent<Rigidbody2D>().position - this.rigid.position).normalized;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,6 +24,7 @@ public class EnemyMov : MonoBehaviour
         if (collision.gameObject.layer.Equals(3))
         {
             GameManager.Instance.pool.DesPool(this.gameObject);
+            GameManager.Instance.player.Atked(this.gameObject);
         }
     }
 

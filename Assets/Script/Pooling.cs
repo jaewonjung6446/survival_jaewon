@@ -28,7 +28,7 @@ public class Pooling : MonoBehaviour
         SetPool();
     }
 
-    void SetPool()
+    private void SetPool()
     {
         for(int i = 0; i < prefabs.Length; i++)
         {
