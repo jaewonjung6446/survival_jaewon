@@ -9,10 +9,15 @@ public class Player : MonoBehaviour
     public int dashToken = 3;
     public float playerHp = 100;
     public float fullPlayerHp = 100;
-    public GameObject atk;
-    GameObject target;
-    float atkRange = 10;
+    public float F_atk = 80;
+    public float F_atkRate = 0.3f;
+    [SerializeField] public float F_atkSpeed = 50;
+    float atkGenTime = 0;
+    public GameObject G_atk;
+    public GameObject target = null;
+    public float atkRange = 5;
     bool dashAble = true;
+    public bool targetSearch = true;
     float vel= 1;
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
@@ -33,6 +38,7 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        atkGenTime += Time.fixedDeltaTime;
         playerPos = rigid.position;
         rigid.MovePosition(playerPos + MovPos() * Time.deltaTime * 5.0f * vel);
         if(MovPos().x > 0)
@@ -53,6 +59,15 @@ public class Player : MonoBehaviour
             }
         }
         animator.SetFloat("Run" , MovPos().magnitude);
+        if (targetSearch && target == null)
+        {
+            Targeting();
+        }
+        if (atkGenTime > F_atkRate && target != null)
+        {
+            atkGenTime = 0;
+            GenAtk();
+        }
     }
     #region Mov
     public Vector2 MovPos()
@@ -77,7 +92,6 @@ public class Player : MonoBehaviour
                 playerHp -= 12;
                 break;
         }
-        Debug.Log(playerHp);
     }
     #endregion Interaction
     #region Dash
@@ -130,11 +144,15 @@ public class Player : MonoBehaviour
             if (dis < disLeast)
                 target = L_enemy[i].gameObject;
         }
+        if(target != null)
+        {
+            targetSearch = false;
+        }
     }
     void GenAtk()
     {
-        GameObject atkPrefab = GameObject.Instantiate(atk);
-        atkPrefab.GetComponent<Rigidbody2D>().position = this.rigid.position;
+        GameObject atkPrefab = GameObject.Instantiate(G_atk);
     }
+
     #endregion Atk
 }

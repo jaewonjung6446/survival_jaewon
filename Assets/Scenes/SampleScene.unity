@@ -17776,7 +17776,13 @@ MonoBehaviour:
   dashToken: 3
   playerHp: 100
   fullPlayerHp: 100
-  atk: {fileID: 0}
+  F_atk: 80
+  F_atkRate: 0.5
+  F_atkSpeed: 10
+  G_atk: {fileID: 3737777981268054311, guid: 30f57988a3d199645af58c71aa4f1929, type: 3}
+  target: {fileID: 0}
+  atkRange: 3
+  targetSearch: 1
   playerPos: {x: 0, y: 0}
 --- !u!95 &951194617
 Animator:

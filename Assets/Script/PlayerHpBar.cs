@@ -19,7 +19,7 @@ public class PlayerHpBar : MonoBehaviour
     }
     private void HpFill()
     {
-        RectBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,1800/GameManager.Instance.player.fullPlayerHp *GameManager.Instance.player.playerHp);
+        RectBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,1800 *GameManager.Instance.player.playerHp / GameManager.Instance.player.fullPlayerHp);
         RectBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 75);
     }
 }
