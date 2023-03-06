@@ -44,6 +44,7 @@ public class RePosition : MonoBehaviour
             for (int j = 0; j < 3; j++)
             {
                 Vector3 genpos = currentPos + currentpos_x[i] + currentpos_y[j];
+                genpos.z = 10;
                 currentposes[current] = genpos;
                 current++;
             }

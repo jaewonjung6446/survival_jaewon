@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public Player player;
     public Pooling pool;
+    public UIManager UI;
 
     private void Awake()
     {
