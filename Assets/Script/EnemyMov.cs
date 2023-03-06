@@ -29,11 +29,7 @@ public class EnemyMov : MonoBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-    }
-
-    void FixedUpdate()
-    {
-        this.rigid.velocity = enemySpeed * (GameManager.Instance.player.GetComponent<Rigidbody2D>().position - this.rigid.position).normalized;
+        this.rigid.velocity = MovVec() * enemySpeed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -61,4 +57,14 @@ public class EnemyMov : MonoBehaviour
         }
     }
     #endregion interaction
+    #region mov
+    Vector2 MovVec()
+    {
+        Vector2 playerPos = GameManager.Instance.player.GetComponent<Rigidbody2D>().position;
+        Vector2 thisPos = this.rigid.position;
+        Vector2 interVec = (playerPos - thisPos).normalized;
+
+        return interVec;
+    }
+    #endregion mov
 }

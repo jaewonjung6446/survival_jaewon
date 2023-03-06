@@ -7,19 +7,21 @@ public class RePosition : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject grid;
     [SerializeField] GameObject[] terrain = new GameObject[3];
+
     Vector3 reposition = Vector3.zero;
+    Vector3 difVec;
+    Vector3 gap = new Vector3(10, 10, 0);
+
     Vector3[] currentpos_x = { new Vector3(-20, 0, 0), new Vector3(0, 0, 0), new Vector3(20, 0, 0) };
     Vector3[] currentpos_y = { new Vector3(0, -20, 0), new Vector3(0, 0, 0), new Vector3(0, 20, 0) };
     Vector3[] currentposes = new Vector3[9];
-    GameObject[] ground = new GameObject[9];
     Vector3[] groundVec = new Vector3[20];
-    Queue<Vector3> groundqueue = new Queue<Vector3>();
+    GameObject[] ground = new GameObject[9];
     List<Vector3> getPos = new List<Vector3>();
-    Vector3 difVec;
-    Vector3 gap = new Vector3(10, 10, 0);
     List<Vector3> intersect = new List<Vector3>();
     Queue<GameObject> movGameObject = new Queue<GameObject>();
-    
+    Queue<Vector3> groundqueue = new Queue<Vector3>();
+
     void OnTriggerExit2D(Collider2D collision)
     {
         if (!this.gameObject.CompareTag("Area"))
