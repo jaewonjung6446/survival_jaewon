@@ -10,6 +10,8 @@ public class EnemyMov : MonoBehaviour
     float enemyHp = 100;
     float score = 0;
     float fullEnemyHp;
+    float time;
+
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -36,6 +38,10 @@ public class EnemyMov : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         this.rigid.velocity = MovVec() * enemySpeed;
+    }
+    private void FixedUpdate()
+    {
+        Des();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -70,6 +76,14 @@ public class EnemyMov : MonoBehaviour
         Vector2 interVec = (playerPos - thisPos).normalized;
 
         return interVec;
+    }
+    private void Des()
+    {
+        time += Time.fixedDeltaTime;
+        if (time > 8)
+        {
+            GameManager.Instance.pool.DesPool(this.gameObject);
+        }
     }
     #endregion mov
 }

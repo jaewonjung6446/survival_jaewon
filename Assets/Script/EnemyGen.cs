@@ -6,9 +6,6 @@ public class EnemyGen : MonoBehaviour
 {
     [SerializeField] float genInterval = 1.5f;
     float time;
-    private void Start()
-    {
-    }
     private void FixedUpdate()
     {
         time += Time.fixedDeltaTime;

@@ -17,12 +17,13 @@ public class Player : MonoBehaviour
     public float fullPlayerHp = 100;
     public float F_atk = 80;
     public float F_atkInterval = 0.3f;
-    public float atkRange = 5;
+    public float atkRange = 4.0f;
     public float I_score;
 
     float atkGenTime = 0;
     bool dashAble = true;
     float vel= 1;
+    float speed = 3.0f;
 
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
@@ -46,7 +47,7 @@ public class Player : MonoBehaviour
     {
         atkGenTime += Time.fixedDeltaTime;
         playerPos = rigid.position;
-        rigid.MovePosition(playerPos + MovPos() * Time.deltaTime * 5.0f * vel);
+        rigid.MovePosition(playerPos + MovPos() * Time.deltaTime * speed * vel);
         if (Input.GetAxis("Jump") != 0)
         {
             if (dashToken > 0 && dashAble)

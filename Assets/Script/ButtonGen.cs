@@ -7,10 +7,10 @@ public class ButtonGen : MonoBehaviour {
     [SerializeField] GameObject[] ButtonPrefabs;
     [SerializeField] GameObject canvas;
     [SerializeField] GameObject backGround;
+    [SerializeField] float buttonGenInterval = 5;
     List<GameObject> buttonList = new List<GameObject>();
     Vector3[] GenPos = { new Vector3(-600, 0, 0), new Vector3(0, 0, 0), new Vector3(600, 0, 0) };
     float time = 0;
-    [SerializeField] float buttonGenTime = 5;
     void Start ()
     {
         backGround.SetActive(false);
@@ -18,7 +18,7 @@ public class ButtonGen : MonoBehaviour {
     void FixedUpdate()
     {
         time += Time.fixedDeltaTime;
-        if (time > buttonGenTime)
+        if (time > buttonGenInterval)
         {
             GenButton();
             time = 0;
