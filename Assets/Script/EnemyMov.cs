@@ -8,6 +8,7 @@ public class EnemyMov : MonoBehaviour
     SpriteRenderer spriteRenderer;
     [SerializeField] float enemySpeed = 3.5f;
     float enemyHp = 100;
+    float score = 0;
     float fullEnemyHp;
     // Start is called before the first frame update
     private void OnEnable()
@@ -16,12 +17,17 @@ public class EnemyMov : MonoBehaviour
         {
             case "Enemy1":
                 this.enemyHp = 100;
+                score = 1;
                 break;
             case "Enemy2":
                 this.enemyHp = 150;
+                score = 2;
+
                 break;
             case "Enemy3":
                 this.enemyHp = 200;
+                score = 4;
+
                 break;
         }
         this.fullEnemyHp = enemyHp;
@@ -52,8 +58,7 @@ public class EnemyMov : MonoBehaviour
         if (enemyHp <= 0)
         {
             GameManager.Instance.pool.DesPool(this.gameObject);
-            GameManager.Instance.player.targetSearch = true;
-            GameManager.Instance.player.target = null;
+            GameManager.Instance.player.I_score += this.score;
         }
     }
     #endregion interaction

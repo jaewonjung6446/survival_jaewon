@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyGen : MonoBehaviour
 {
-    [SerializeField] float genTime = 1.5f;
+    [SerializeField] float genInterval = 1.5f;
     float time;
     private void Start()
     {
@@ -12,7 +12,7 @@ public class EnemyGen : MonoBehaviour
     private void FixedUpdate()
     {
         time += Time.fixedDeltaTime;
-        if(time > genTime)
+        if(time > genInterval)
         {
             int a = (int)Random.Range(0, 3);
             int b = (int)Random.Range(0, 360);

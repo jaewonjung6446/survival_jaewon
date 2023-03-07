@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject Fillbar;
     [SerializeField] Text hpText;
     [SerializeField] Text dashText;
+    [SerializeField] Text scoreText;
+
     RectTransform RectBar;
     private void Awake()
     {
@@ -21,6 +23,7 @@ public class UIManager : MonoBehaviour
         }
         HpText();
         DashText();
+        ScoreText();
     }
     private void HpFill()
     {
@@ -34,5 +37,9 @@ public class UIManager : MonoBehaviour
     private void DashText()
     {
         dashText.text = "´ë½¬ È½¼ö : " + GameManager.Instance.player.dashToken.ToString();
+    }
+    private void ScoreText()
+    {
+        scoreText.text = "Score = " + (GameManager.Instance.player.I_score+Mathf.Round(Time.time));
     }
 }

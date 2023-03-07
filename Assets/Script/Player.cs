@@ -5,19 +5,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    #region 변수 선언
     [SerializeField] public float F_atkSpeed = 50;
     [SerializeField] GameObject atk;
 
-    public GameObject target = null;
     public Vector3 mov_pos = Vector2.zero;
     public Vector2 playerPos;
+    public Vector2 atkDir;
     public int dashToken = 3;
     public float playerHp = 100;
     public float fullPlayerHp = 100;
     public float F_atk = 80;
-    public float F_atkRate = 0.3f;
+    public float F_atkInterval = 0.3f;
     public float atkRange = 5;
-    public bool targetSearch = true;
+    public float I_score;
 
     float atkGenTime = 0;
     bool dashAble = true;
@@ -26,6 +27,8 @@ public class Player : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator animator;
+    [SerializeField] Camera PlayerCam;
+    #endregion 변수선언
 
     void Awake()
     {
@@ -44,14 +47,6 @@ public class Player : MonoBehaviour
         atkGenTime += Time.fixedDeltaTime;
         playerPos = rigid.position;
         rigid.MovePosition(playerPos + MovPos() * Time.deltaTime * 5.0f * vel);
-        if(MovPos().x > 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        if(MovPos().x < 0)
-        {
-            spriteRenderer.flipX = false;
-        }
         if (Input.GetAxis("Jump") != 0)
         {
             if (dashToken > 0 && dashAble)
@@ -61,16 +56,10 @@ public class Player : MonoBehaviour
                 StartCoroutine("DashVel");
             }
         }
+        Flip();
         animator.SetFloat("Run" , MovPos().magnitude);
-        if (targetSearch && target == null)
-        {
-            Targeting();
-        }
-        if (atkGenTime > F_atkRate && target != null)
-        {
-            atkGenTime = 0;
-            GenAtk();
-        }
+        GenAtk();
+        AtkDir();
     }
     #region Mov
     public Vector2 MovPos()
@@ -78,6 +67,17 @@ public class Player : MonoBehaviour
         mov_pos.x = Input.GetAxisRaw("Horizontal");
         mov_pos.y = Input.GetAxisRaw("Vertical");
         return mov_pos.normalized;
+    }
+    void Flip()
+    {
+        if (MovPos().x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        if (MovPos().x < 0)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
     #endregion Mov
     #region Interaction
@@ -128,6 +128,7 @@ public class Player : MonoBehaviour
     }
     #endregion Dash
     #region Atk
+    /* targeting
     void Targeting()
     {
         GameObject[] A_enemy = GameObject.FindGameObjectsWithTag("Enemy");
@@ -151,11 +152,18 @@ public class Player : MonoBehaviour
         {
             targetSearch = false;
         }
-    }
+    }*/
     void GenAtk()
     {
-        GameObject atkPrefab = GameObject.Instantiate(atk);
+        if(atkGenTime> F_atkInterval)
+        {
+            GameObject atkPrefab = GameObject.Instantiate(atk);
+            atkGenTime = 0;
+        }
     }
-
+    void AtkDir()
+    {
+        atkDir = PlayerCam.ScreenToWorldPoint(Input.mousePosition);
+    }
     #endregion Atk
 }
