@@ -36,8 +36,8 @@ public class UIManager : MonoBehaviour
     }
     private void HpFill()
     {
-        RectBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,1650 *GameManager.Instance.player.playerHp / GameManager.Instance.player.fullPlayerHp);
-        RectBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 75);
+        RectBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,600 *GameManager.Instance.player.playerHp / GameManager.Instance.player.fullPlayerHp);
+        RectBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 30);
     }
     private void HpText()
     {
@@ -59,11 +59,16 @@ public class UIManager : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1;
-        Menu.SetActive(false);
+        Menu.SetActive(!Menu.activeSelf);
     }
     public void Restart()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("PlayScene");
+    }
+    public void Quit()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MenuScene");
     }
 }
