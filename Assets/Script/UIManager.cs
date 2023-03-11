@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
     }
     private void HpFill()
     {
-        RectBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,600 *GameManager.Instance.player.playerHp / GameManager.Instance.player.fullPlayerHp);
+        RectBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,650 *GameManager.Instance.player.playerHp / GameManager.Instance.player.fullPlayerHp);
         RectBar.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 30);
     }
     private void HpText()
@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
     }
     private void DashText()
     {
-        dashText.text = "´ë½¬ È½¼ö : " + GameManager.Instance.player.dashToken.ToString();
+        dashText.text = "Dash Token : " + GameManager.Instance.player.dashToken.ToString();
     }
     private void ScoreText()
     {

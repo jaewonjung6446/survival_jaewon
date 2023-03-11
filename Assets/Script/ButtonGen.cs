@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class ButtonGen : MonoBehaviour { 
     [SerializeField] GameObject[] ButtonPrefabs;
@@ -9,7 +8,7 @@ public class ButtonGen : MonoBehaviour {
     [SerializeField] GameObject backGround;
     [SerializeField] float buttonGenInterval = 5;
     List<GameObject> buttonList = new List<GameObject>();
-    Vector3[] GenPos = { new Vector3(-250, 0, 0), new Vector3(0, 0, 0), new Vector3(250, 0, 0) };
+    Vector3[] GenPos = { new Vector3(-250, -500, 0), new Vector3(0, -500, 0), new Vector3(250, -500, 0) };
     float time = 0;
     void Start ()
     {

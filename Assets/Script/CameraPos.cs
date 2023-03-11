@@ -8,6 +8,6 @@ public class CameraPos : MonoBehaviour
 
     void LateUpdate()
     {
-        this.transform.position = player.transform.position + new Vector3(0,0,-15);
+        this.transform.position = player.transform.position + new Vector3(0,0,-25);
     }
 }
